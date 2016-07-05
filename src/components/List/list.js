@@ -57,7 +57,7 @@ var Lists = React.createClass({
         return (
             <div >
             	{this.getAjax()} 
-                <Button size="large" loading={true} style={{width:'100%'}}>加载更多</Button>
+                <Button size="large" loading={false} style={{width:'100%'}}>加载更多</Button>
             </div>
         );
     }
