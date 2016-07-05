@@ -1,6 +1,7 @@
 var React = require('react');
 import {Row,Col,Select,Icon,Button} from 'antd';
 import styles from './lists.less';
+import xFetch from './../../services/xFetch';
 
 var Lists = React.createClass({
     displayName: 'Lists',
@@ -21,17 +22,43 @@ var Lists = React.createClass({
     },
     getInitialState(){
         return {
-            list:{
-                loading:false,
-                data:[]
-            }
+            loading:true,
+            pageSize:10,
+            pageIndex:1,
+            list:[]       
         }
     },
+    componentDidMount(){
+        console.log(this.prorps)
+        this.getAjax();
+    },
     getAjax(){
-        var data=this.state.list.data,
+        var that=this;
+        var opts={
+            pageSize:this.state.pageSize,
+            pageIndex:this.state.pageIndex
+        }
+        xFetch('/api/cerlist',opts).then(({jsonResult})=>{
+            if(jsonResult.success){
+                var mdata=this.state.list.concat(jsonResult.data);
+                that.setState({
+                    loading:false,
+                    list:mdata
+                })
+            }
+        })
+    },
+    handleClick(){
+        this.setState({
+            loading:true,
+            list:this.state.list
+        })
+        this.getAjax();
+    },
+    render() {
+        var data=this.state.list,
             that=this;
-            
-        var mlist=data.map(function(el,index){
+        var mlist=data.map((el,index) => {
             return (
                 <Row className={styles.list_li} key={index} >
                     <Col span="6">
@@ -50,14 +77,11 @@ var Lists = React.createClass({
                     </Col>
                 </Row>
             );
-        })
-        return mlist;
-    },
-    render() {
+        });
         return (
-            <div >
-            	{this.getAjax()} 
-                <Button size="large" loading={false} style={{width:'100%'}}>加载更多</Button>
+            <div>
+                {mlist}
+                <Button size="large" loading={this.state.loading} style={{width:'100%'}} onClick={this.handleClick}>加载更多</Button>
             </div>
         );
     }

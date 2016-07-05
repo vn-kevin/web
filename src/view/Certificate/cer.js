@@ -6,8 +6,16 @@ const Option = Select.Option;
 
 var Cer = React.createClass({
     displayName: 'Cer',
+    getInitialState(){
+        return {
+            type:0
+        }
+    },
     handleChange(value){
-    	console.log(`selected ${value}`);
+    	this.setState({
+            type:value
+        })
+        console.log(`selected ${value}`);
     },
     render() {
         return (
@@ -36,7 +44,7 @@ var Cer = React.createClass({
 					    </Select>
             		</Col>
             	</Row>
-            	<Lists></Lists>
+            	<Lists type={this.state.type}></Lists>
             </div>
         );
     }
