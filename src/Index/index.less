@@ -32,6 +32,8 @@
   	position: relative;
   	background-repeat: no-repeat;
   	background-position: center top;
+    overflow: hidden;
+    .jsimg{ position: relative; z-index: 1;}
   }
   .header{
   	background-color: #262729;
@@ -42,8 +44,8 @@
   	.menu{
   		padding: 15px 20px 0 60px;
   		line-height: 40px;
-  		a{ font-size: 20px; .fl; padding: 0 35px;
-			&.active,&:hover{color:#f2d33e}
+  		a{ font-size: 20px; .fl; padding: 0 30px; height: 60px; margin-right: 10px;.ease(all,.3s,ease);
+			&.active,&:hover{color:#f2d33e; border-bottom: 3px solid #f2d33e}
   		}
   	}
   	.lg_btn{
@@ -67,6 +69,7 @@
   	}
   }
   .txt_cont{
+      z-index:2;
   		.ease(all,.3s,ease);
   		.dey(.2s);
   		width: 900px;height: 256px;
@@ -146,7 +149,7 @@
   .ad3{
   	height: 578px;
   	position: relative;
-  	background: url(images/ad3_53.jpg) no-repeat center top;
+  	overflow: hidden;
   	.txt_cont{
   		text-align: center;
   		height: 200px;
@@ -189,11 +192,21 @@
   	color:#ccc;
   	a{color:#ccc;}
   	h3{
+      height:45px;
   		font-size: 20px;
   		font-weight: 100;
+      perspective: 1000px;
+      -webkit-perspective: 1000px;
   		a{ 
 			padding: 5px 10px;
 			margin: 0 30px;
+      display: inline-block;
+      .ease(all,.3s,ease);
+      border-radius: 3px;
+      &:hover{
+        border-bottom: 3px solid #fff;
+        transform: rotateX(-20deg);
+      }
   		}
   	}
   	.tell{
@@ -207,32 +220,4 @@
   	}
   }
 
-  .weui_btn {
-	  width: 100%;
-	  border-width: 0;
-	  outline: 0;
-	  -webkit-appearance: none;
-	  color:#fff;
-	  line-height: 2.33333333;
-	}
-	.weui_btn:focus {
-	  outline: 0;
-	}
-
-	.weui_input {
-	  width: 100%;
-	  border: 0;
-	  outline: 0;
-	  -webkit-appearance: none;
-	  background-color: transparent;
-	  font-size: inherit;
-	  color: inherit;
-	  height: 1.41176471em;
-	  line-height: 1.41176471;
-	}
-	.weui_input::-webkit-outer-spin-button,
-	.weui_input::-webkit-inner-spin-button {
-	  -webkit-appearance: none;
-	  margin: 0;
-	}
 }

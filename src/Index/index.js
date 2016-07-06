@@ -1,16 +1,16 @@
 import './index.html';
 import './index.less';
-import Abtn from './btn.js';
-import ReactDOM from 'react-dom';
-import React from 'react';
-import $ from 'jQuery';
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Abtn from './../components/IndexBtn/btn.js';
 
 import {Row,Col,QueueAnim} from 'antd';
 import banner from './images/banner_05.jpg';
 import logo from './images/lg.png';
 import ad4img from './images/ad4_03.jpg';
 import ad5img from './images/ad5.jpg';
+import ad3img from './images/ad3_53.jpg';
 let mad;
 
 var Index = React.createClass({
@@ -67,42 +67,44 @@ var Index = React.createClass({
 	    		</Row>
 	    		<Row key="2">
 	    			<Col span="24">
-						<div className="banner" style={{backgroundImage:"url("+banner+")"}}>
+						<div className="banner">
 							<div className="txt_cont">
-								<h2>中康信息</h2>
-								<h1>互联网+建筑 云平台管理正式上线</h1>
-								<a href="#mobile" className="gom">手机端下载</a>
+								<h2 data-parallax='{"z": -80}'>中康信息</h2>
+								<h1 data-parallax='{"z": 80}'>互联网+建筑 云平台管理正式上线</h1>
+								<a href="#mobile" className="gom" data-parallax='{"z": 160}'>手机端下载</a>
 							</div>
+							<img src={banner} />
 						</div>
 					</Col>
 	    		</Row>
 	    		<Row className="ad1" key="3">
 	    			<Col span="24">
-	    				<div className="ow">
-	    					<Abtn data={ad1_data}></Abtn>
+	    				<div className="ow" style={{overflow:"hidden"}}>
+	    					<Abtn data={ad1_data} title="50"></Abtn>
 	    				</div>
 	    			</Col>
 	    		</Row>
 	    		<Row className="ad2" key="4">
 	    			<Col span="24">
-	    				<div className="ow">
-	    					<h1>建筑行业信息化管理一站式平台</h1>
-	    					<Abtn data={ad2_data}></Abtn>
+	    				<div className="ow" style={{overflow:"hidden"}}>
+	    					<h1 data-parallax='{"z": 40}'>建筑行业信息化管理一站式平台</h1>
+	    					<Abtn data={ad2_data} title="450"></Abtn>
 	    				</div>
 	    			</Col>
 	    		</Row>
 	    		<Row className="ad3" key="5">
 	    					<div className="txt_cont">
-		    					<h2>现在，就开始使用day建筑</h2>
-		    					<a href="#mobile" className="gom">立即注册</a>
+		    					<h2 data-parallax='{"z": -80}'>现在，就开始使用day建筑</h2>
+		    					<a href="#mobile" className="gom" data-parallax='{"z": 80}'>立即注册</a>
 	    					</div>
+	    					<img src={ad3img} data-parallax='{"y": -100}'/>
 	    		</Row>
 	    		<Row className="ad4" key="6">
 	    			<Col span="24">
 	    				<div className="ow">
-	    					<h1>下载day建筑，实现电脑、手机多平台一体化办公</h1>
-	    					<p>多端同步，随时随地，省时省心</p>
-	    					<img src={ad4img} className="img"/>
+	    					<h1 data-parallax='{"z": 80}'>下载day建筑，实现电脑、手机多平台一体化办公</h1>
+	    					<p data-parallax='{"z": -80}'>多端同步，随时随地，省时省心</p>
+	    					<img src={ad4img} className="img" data-parallax='{"z": 40}'/>
 	    				</div>
 	    				
 	    			</Col>
@@ -110,8 +112,8 @@ var Index = React.createClass({
 	    		<Row className="ad5" key="7">
 	    			<Col span="24">
 	    				<div className="ow">
-	    					<h1>他们都选择了day建筑</h1>
-	    					<img src={ad5img}/>
+	    					<h1 data-parallax='{"z": 40}'>他们都选择了day建筑</h1>
+	    					<img src={ad5img} data-parallax='{"z": 50}'/>
 	    				</div>
 	    				
 	    			</Col>
@@ -139,25 +141,6 @@ var Index = React.createClass({
 	    		
     		</QueueAnim>
     	);
-    },
-    componentDidMount(){
-/*    	mad=(()=>{
-    		$(window).scroll(function(){
-    			var t=$(this).scrollTop();
-    			if(t>(584/2) && t<584){
-    				var ms=-(t-(584/2));
-    				console.log(t/584)
-    				$('.banner .txt_cont').css({
-    						//"transform": "translateY("+ms+"px)",
-    						//"-webkit-filter":"blur(1px)"
-    					});
-    			}
-    		});
-    	})();
-    	console.log(mad)*/
-    },
-    componentWillUnmount(){
-    	console.log('end')
     },
     render() {
         return (
