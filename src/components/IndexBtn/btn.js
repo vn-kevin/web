@@ -9,7 +9,6 @@ var Abtn = React.createClass({
     },
     render() {
         var ats=this.props.title;
-        console.log(ats)
     	var list=this.props.data.map((el,index)=>{
             var vs=(ats-0)+(index*80);
             var vhtml='{"x": -1200, "from-scroll": '+vs+', "distance": 0, "smoothness": 10}';

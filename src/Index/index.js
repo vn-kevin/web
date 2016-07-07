@@ -13,6 +13,9 @@ import ad5img from './images/ad5.jpg';
 import ad3img from './images/ad3_53.jpg';
 let mad;
 
+let reg_href=window.reg_href;
+let login_href=window.login_href;
+
 var Index = React.createClass({
     displayName: 'Index',
     setContent(){
@@ -59,8 +62,8 @@ var Index = React.createClass({
 	    						<a href="#">关于我们</a>
 	    					</div>
 	    					<div className="fr lg_btn">
-	    						<a href="https://pclogin.test.daydao.com/login?source=dayjz">登录</a>
-	    						<a href="https://pclogin.test.daydao.com/reg/company?source=dayjz&amp;regtype=true">注册</a>
+	    						<a href={login_href}>登录</a>
+	    						<a href={reg_href}>注册</a>
 	    					</div>
 	    				</div>
 	    			</Col>
@@ -73,7 +76,7 @@ var Index = React.createClass({
 								<h1 data-parallax='{"z": 80}'>互联网+建筑 云平台管理正式上线</h1>
 								<a href="#mobile" className="gom" data-parallax='{"z": 160}'>手机端下载</a>
 							</div>
-							<img src={banner} />
+							<img src={banner} data-parallax='{"y": -100}'/>
 						</div>
 					</Col>
 	    		</Row>
@@ -95,9 +98,9 @@ var Index = React.createClass({
 	    		<Row className="ad3" key="5">
 	    					<div className="txt_cont">
 		    					<h2 data-parallax='{"z": -80}'>现在，就开始使用day建筑</h2>
-		    					<a href="#mobile" className="gom" data-parallax='{"z": 80}'>立即注册</a>
+		    					<a href={reg_href} className="gom" data-parallax='{"z": 80}'>立即注册</a>
 	    					</div>
-	    					<img src={ad3img} data-parallax='{"y": -100}'/>
+	    					<img src={ad3img} data-parallax='{"y": -140}'/>
 	    		</Row>
 	    		<Row className="ad4" key="6">
 	    			<Col span="24">

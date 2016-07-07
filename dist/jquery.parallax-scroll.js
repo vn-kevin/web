@@ -1,4 +1,3 @@
-
 var ParallaxScroll = {
     /* PUBLIC VARIABLES */
     showLogs: false,
