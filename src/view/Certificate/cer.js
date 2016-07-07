@@ -1,21 +1,57 @@
 var React = require('react');
 import Tops from './../../components/top.js';
-import {Row,Col,Select} from 'antd';
+import {Row,Col,Select,Button} from 'antd';
 import Lists from './../../components/List/list.js';
+import Ajax from './../../services/Ajax.js';
+
 const Option = Select.Option;
+const pageSize=10;
 
 var Cer = React.createClass({
     displayName: 'Cer',
     getInitialState(){
         return {
-            type:0
+            loading:true,
+            pageIndex:1,
+            pageSize:pageSize,
+            list:[]
         }
     },
+    componentDidMount(){
+        this.getAjax();
+     },
+    getAjax(...obj){
+        var that=this;
+        var opts={};
+        opts.pageSize=pageSize;
+        Object.assign(opts,...this.state,...obj);
+
+        Ajax({
+            url:'/api/cerlist',
+            data:opts,
+            success:function(data){
+                var mdata=opts.pageIndex==1?(data.data):(that.state.list.concat(data.data));
+                opts.loading=false;
+                opts.list=mdata;
+                that.setState(opts);
+            }
+        });
+    },
     handleChange(value){
-    	this.setState({
+        this.getAjax({
+            loading:true,
+            pageIndex:1,
             type:value
-        })
-        console.log(`selected ${value}`);
+        });
+    },
+    handleClick(){
+       
+        var qindex=(this.state.pageIndex-0)+1;
+        var obj={
+            pageIndex:qindex
+        }
+        obj.type=this.state.type;
+        this.getAjax(obj);
     },
     render() {
         return (
@@ -44,7 +80,8 @@ var Cer = React.createClass({
 					    </Select>
             		</Col>
             	</Row>
-            	<Lists type={this.state.type}></Lists>
+            	<Lists data={this.state.list}></Lists>
+                <Button size="large" loading={this.state.loading} style={{width:'100%'}} onClick={this.handleClick}>{this.state.loading?'加载中':'加载更多'}</Button>
             </div>
         );
     }

@@ -1,18 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import {Link } from 'react-router';
-import {Row,Col,Carousel,Icon} from 'antd';
+import {Row,Col,Icon} from 'antd';
 import styles from './home.less';
+import bannerimg from './../images/dbanner.jpg';
 const App = ({ location }) => {
 
   var setBanner=function(){
-  	 var ds=['http://img.zcool.cn/community/focus/d7d45779dda200000163558adea2.jpg','http://img.zcool.cn/community/focus/d40d5779dbf700000163555503d7.jpg','http://img.zcool.cn/community/focus/84205779cb88000001635592f038.jpg'];
-  	 var imgs=ds.map(function(el,index){
-  	 		var style={
-  	 			"backgroundImage":"url("+el+")"
-  	 		};
-  	 	 	return (<div key={index} style={style} className={styles.banner_img}></div>)
-  	 	 });
-  	 return (<Carousel autoplay className={styles.banner}>{imgs}</Carousel>)
+     return (<div className={styles.banner}><img src={bannerimg} style={{width:'100%'}}/></div>);
   };
   var setMenu=function(){
   	var data=[{
@@ -59,7 +53,7 @@ const App = ({ location }) => {
    	<div className={styles.normal}>
    		<Row>
    			<Col span="24" className={styles.subtitl}>
-   				Day建造
+   				day建造
    			</Col>
    		</Row>
    		<Row>

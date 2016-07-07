@@ -9,11 +9,11 @@ var Tops = React.createClass({
     render() {
     	var subtitle={
 			height: "45px",
-			background:"#e51c23",
+			background:"#292929",
 			textAlign: "center", 
 			lineHeight: "45px",
 			fontSize: "16px",
-			color:"#fff"
+			color:"#edd337"
     	};
     	var icoLeftCss={
     		width:'40px',
@@ -46,7 +46,7 @@ var Tops = React.createClass({
     	}
     	var isGoBank=this.props.isGoBank?<Icon type="left" style={icoLeftCss} onClick={this.goBack}/>:'';
     	var isSearch=this.props.isSearch?<Icon type="search" style={icoRightCss}/>:'';
-    	var isAdd=this.props.isAdd?<Icon type="plus" style={icoRightAddCss}/>:'';
+    	var isAdd=this.props.isAdd?<Icon type="plus" style={icoRightAddCss} />:'';
         return (
                 <Row>
     	   			<Col span="24" style={subtitle}>

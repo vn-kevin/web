@@ -15,13 +15,13 @@ var Login = React.createClass({
     handleClick(){
     	var us=this.refs.user; 
     	var ps=this.refs.psw;
+
     	$(us).val('369zxc');
     	$(ps).val('123456');
 
 		xFetch('/api/login').then(({
 			jsonResult
 		}) => {
-			console.log(jsonResult)
 			if(jsonResult.success){
 				this.props.history.replaceState(null,'/home');
 			}

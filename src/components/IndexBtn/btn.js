@@ -21,7 +21,7 @@ var Abtn = React.createClass({
     			</li>);
     	});
         return (
-            <ul className="ls_list" style={{marginLeft:"1200px",width:'100%'}}>{list}</ul>
+            <ul className="ls_list" style={{transform:"translateX(1200px)",width:'100%'}}>{list}</ul>
         );
     }
 });
