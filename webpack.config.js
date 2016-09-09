@@ -29,7 +29,7 @@ module.exports = function (webpackConfig) {
   });
 
   //const files = glob.sync('./src/Index/*.js');
-  const files = glob.sync('./src/entries/*.js');
+  const files = glob.sync('./src/Index/*.js');
   
   const newEntries = files.reduce(function(memo, file) {
     const name = path.basename(file, '.js');

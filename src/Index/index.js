@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Abtn from './../components/IndexBtn/btn.js';
 
-import {Row,Col,QueueAnim} from 'antd';
+import {Row,Col,QueueAnim,Affix} from 'antd';
 import banner from './images/banner_05.jpg';
 import logo from './images/lg.png';
 import ad4img from './images/ad4_03.jpg';
@@ -50,6 +50,7 @@ var Index = React.createClass({
     	}];
     	return (
     		<QueueAnim leaveReverse={true} type={['top','bottom']}>
+    			<Affix>
 	    		<Row className="header" key="1">
 	    			<Col span="24">
 	    				<div className="ow">
@@ -68,6 +69,7 @@ var Index = React.createClass({
 	    				</div>
 	    			</Col>
 	    		</Row>
+	    		</Affix>
 	    		<Row key="2">
 	    			<Col span="24">
 						<div className="banner">
@@ -76,14 +78,14 @@ var Index = React.createClass({
 								<h1 data-parallax='{"z": 80}'>互联网+建筑 云平台管理正式上线</h1>
 								<a href="#mobile" className="gom" data-parallax='{"z": 160}'>手机端下载</a>
 							</div>
-							<img src={banner} data-parallax='{"y": -100}'/>
+							<img src={'./src/'+banner} data-parallax='{"y": -100}'/>
 						</div>
 					</Col>
 	    		</Row>
 	    		<Row className="ad1" key="3">
 	    			<Col span="24">
 	    				<div className="ow" style={{overflow:"hidden"}}>
-	    					<Abtn data={ad1_data} title="50"></Abtn>
+	    					<Abtn data={ad1_data} title="20"></Abtn>
 	    				</div>
 	    			</Col>
 	    		</Row>
@@ -100,14 +102,14 @@ var Index = React.createClass({
 		    					<h2 data-parallax='{"z": -80}'>现在，就开始使用day建筑</h2>
 		    					<a href={reg_href} className="gom" data-parallax='{"z": 80}'>立即注册</a>
 	    					</div>
-	    					<img src={ad3img} data-parallax='{"y": -140}'/>
+	    					<img src={'./src/'+ad3img} data-parallax='{"y": -140}'/>
 	    		</Row>
 	    		<Row className="ad4" key="6">
 	    			<Col span="24">
 	    				<div className="ow">
 	    					<h1 data-parallax='{"z": 80}'>下载day建筑，实现电脑、手机多平台一体化办公</h1>
 	    					<p data-parallax='{"z": -80}'>多端同步，随时随地，省时省心</p>
-	    					<img src={ad4img} className="img" data-parallax='{"z": 40}'/>
+	    					<img src={'./src/'+ad4img} className="img" data-parallax='{"z": 40}'/>
 	    				</div>
 	    				
 	    			</Col>
@@ -116,7 +118,7 @@ var Index = React.createClass({
 	    			<Col span="24">
 	    				<div className="ow">
 	    					<h1 data-parallax='{"z": 40}'>他们都选择了day建筑</h1>
-	    					<img src={ad5img} data-parallax='{"z": 50}'/>
+	    					<img src={'./src/'+ad5img} data-parallax='{"z": 50}'/>
 	    				</div>
 	    				
 	    			</Col>
